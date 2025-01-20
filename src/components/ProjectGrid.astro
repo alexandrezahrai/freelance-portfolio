@@ -1,12 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 
 type Props = {
-  projects: Array<never>;
-  animate: boolean;
+  animate?: boolean;
 };
 
-const { projects, animate } = Astro.props;
+const { animate } = Astro.props;
+
+const projects = await getCollection("projects");
 ---
 
 <ul class=`grid sm:grid-cols-2 gap-6 ${animate ? "animate" : ""}`>

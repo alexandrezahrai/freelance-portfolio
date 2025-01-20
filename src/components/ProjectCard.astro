@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Picture } from "astro:assets";
 
 type Props = {
   entry: CollectionEntry<"projects">;
@@ -13,11 +14,15 @@ const { entry } = Astro.props;
   id="card"
 >
   <a href={`/${entry.collection}/${entry.slug}`}>
-    <div class="h-56 w-full overflow-hidden sm:h-44">
-      <img
-        src={entry.data.screenshot}
-        alt="Input Morph Message"
-        class="h-full w-full object-cover"
+    <div class="h-56 w-full overflow-hidden sm:h-44 relative">
+      <Picture
+        src={entry.data.screenshot
+          ? entry.data.screenshot
+          : "https://placehold.co/500x300"}
+        formats={["avif", "webp"]}
+        width="3024"
+        height="1674"
+        alt=`Screenshot of ${entry.data.title} website.`
       />
     </div>
     <div class="flex flex-col flex-1 gap-2 p-4">

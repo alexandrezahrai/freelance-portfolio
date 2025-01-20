@@ -82,6 +82,10 @@ article img {
   @apply rounded-xl;
 }
 
+picture img {
+  @apply object-cover w-full h-full;
+}
+
 @layer utilities {
   article h1,
   article h2,

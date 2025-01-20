@@ -40,7 +40,7 @@ A high-performance marketing website built with Next.js, Sanity CMS, and Tailwin
 
 ## Lighthouse score
 
-![Bellevue International Lighthouse Score](/_bellevue_lighthouse_score.png)
+![Bellevue International Lighthouse Score](/_besa_lighthouse_score.png)
 
 <!-- ## 🕊️ Lightweight
 

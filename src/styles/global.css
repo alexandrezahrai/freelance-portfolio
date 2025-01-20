@@ -75,9 +75,6 @@ footer {
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold prose-p:font-sans prose-p:leading-6 prose-headings:leading-5;
-  /* @apply text-slate-500 dark:text-[#B4B4B4]; */
-  /* @apply text-slate-900/75 dark:text-[#B4B4B4];
-  @apply prose-headings:text-slate-900 prose-headings:dark:text-white; */
   @apply text-inherit;
 }
 

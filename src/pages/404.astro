@@ -1,0 +1,22 @@
+---
+import { NOT_FOUND } from "@consts";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+---
+
+<PageLayout title={NOT_FOUND.TITLE} description={NOT_FOUND.DESCRIPTION}>
+  <Container>
+    <div class="flex items-center justify-center h-full w-full">
+      <div
+        class="animate flex flex-col sm:flex-row gap-2 sm:gap-0 items-center"
+      >
+        <h1
+          class="text-3xl font-caveat text-indigo-600 dark:text-indigo-400 sm:pr-6 sm:mr-6 sm:border-r sm:border-slate-900/10 sm:dark:border-slate-300/10"
+        >
+          404
+        </h1>
+        <span>This page could not be found.</span>
+      </div>
+    </div>
+  </Container>
+</PageLayout>

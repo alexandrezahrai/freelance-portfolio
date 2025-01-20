@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.card.reset {
+  transform: perspective(600px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  @apply bg-indigo-600 text-slate-900 dark:bg-indigo-400;
+}
+
 html {
   overflow-y: scroll;
   color-scheme: light;
@@ -13,24 +36,37 @@ html.dark {
 
 html,
 body {
-  @apply size-full;
+  @apply min-h-full;
 }
 
 body {
+  @apply relative;
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
+  @apply bg-slate-50 dark:bg-[#06050F];
+  @apply text-slate-900/75 dark:text-white/75;
+  @apply -tracking-[0.75px];
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply leading-5;
 }
 
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-stone-100/75 dark:bg-stone-900/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply bg-slate-50/75 dark:bg-[#06050F]/15;
+  @apply backdrop-blur-sm;
 }
 
 main {
   @apply flex-1 py-32;
+  @apply relative;
+  @apply overflow-clip;
 }
 
 footer {
@@ -39,18 +75,42 @@ footer {
 
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply prose-headings:font-semibold prose-p:font-sans prose-p:leading-6 prose-headings:leading-5;
+  /* @apply text-slate-500 dark:text-[#B4B4B4]; */
+  /* @apply text-slate-900/75 dark:text-[#B4B4B4];
+  @apply prose-headings:text-slate-900 prose-headings:dark:text-white; */
+  @apply text-inherit;
+}
+
+article img {
+  @apply rounded-xl;
 }
 
 @layer utilities {
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    @apply text-slate-900 dark:text-slate-50;
+  }
+
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    @apply text-lg leading-5;
+  }
   article a {
     @apply font-sans text-current underline underline-offset-2;
     @apply decoration-black/15 dark:decoration-white/30;
     @apply transition-colors duration-300 ease-in-out;
   }
   article a:hover {
-    @apply text-black dark:text-white;
+    @apply text-slate-900 dark:text-white;
     @apply decoration-black/25 dark:decoration-white/50;
   }
 }

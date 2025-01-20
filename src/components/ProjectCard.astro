@@ -1,0 +1,111 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  entry: CollectionEntry<"projects">;
+};
+
+const { entry } = Astro.props;
+---
+
+<div
+  class="project-card group relative overflow-clip transform-gpu bg-white hover:bg-indigo-50 backdrop-blur-lg transition-all duration-300 ease-out rounded-2xl p-2 dark:bg-zinc-900 border border-slate-900/10 hover:border-indigo-200 dark:border-zinc-800 dark:hover:bg-indigo-950 dark:hover:border-indigo-800"
+  id="card"
+>
+  <a href={`/${entry.collection}/${entry.slug}`}>
+    <div class="h-64 w-full overflow-hidden rounded-xl sm:h-44">
+      <img
+        src={entry.data.screenshot}
+        alt="Input Morph Message"
+        class="h-full w-full object-cover"
+      />
+    </div>
+    <div class="flex flex-col flex-1 pt-0 p-1 mt-2">
+      <h3
+        class="font-semibold text-slate-900 dark:text-slate-50 mb-[2px] group-hover:text-indigo-800 dark:group-hover:text-indigo-50"
+      >
+        {entry.data.title}
+      </h3>
+      <p
+        class="text-sm line-clamp-1 sm:line-clamp-2 group-hover:text-indigo-950 dark:group-hover:text-inherit"
+      >
+        {entry.data.description}
+      </p>
+    </div>
+  </a>
+</div>
+
+<script type="module">
+  // Function to initialize event listeners
+  function initializeCardEffects() {
+    // Select all card elements
+    const cards = document.querySelectorAll(".project-card");
+
+    // Constants for scaling
+    const SCALE_X = 8;
+    const SCALE_Y = 16;
+
+    // Utility to apply transformations
+    function applyTransform(card, mouseX, mouseY, cardSize) {
+      const rotateX = (mouseY / cardSize.height) * -(SCALE_Y * 2) + SCALE_Y;
+      const rotateY = (mouseX / cardSize.width) * (SCALE_X * 2) - SCALE_X;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    }
+
+    // Utility to reset transformation
+    function resetTransform(card) {
+      card.style.transform =
+        "perspective(600px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+    }
+
+    // Throttle mousemove event
+    function throttle(callback, limit) {
+      let wait = false;
+      return function (...args) {
+        if (!wait) {
+          callback.apply(this, args);
+          wait = true;
+          setTimeout(() => (wait = false), limit);
+        }
+      };
+    }
+
+    // Event handlers
+    function handleMouseMove(e) {
+      const card = e.currentTarget;
+      const rect = card.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const cardSize = {
+        width: card.offsetWidth || 0,
+        height: card.offsetHeight || 0,
+      };
+      applyTransform(card, mouseX, mouseY, cardSize);
+    }
+
+    function handleMouseOut(e) {
+      resetTransform(e.currentTarget);
+    }
+
+    // Add event listeners to cards
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", throttle(handleMouseMove, 16)); // 16ms for ~60fps
+      card.addEventListener("mouseout", handleMouseOut);
+      card.addEventListener("mouseover", () => (card.dataset.hover = true));
+      card.addEventListener("blur", () => (card.dataset.hover = false));
+      card.addEventListener("focus", () => (card.dataset.hover = true));
+    });
+  }
+
+  // Initialize effects after view transition is complete
+  if (typeof window !== "undefined") {
+    window.addEventListener("load", initializeCardEffects);
+
+    // Trigger reinitialization when the view transition completes
+    document.addEventListener("transitionend", initializeCardEffects);
+
+    // Trigger re-initialization on Astro SPA load
+    window.addEventListener("astro:load", initializeCardEffects);
+  }
+</script>

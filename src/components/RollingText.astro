@@ -1,0 +1,25 @@
+---
+export interface Props {
+  /** Array of items to display in the sliding animation */
+  items: string[];
+}
+
+const { items } = Astro.props;
+
+// Calculate the animation class dynamically based on the number of unique items
+const uniqueItems = [...new Set(items)]; // Remove duplicates to get unique items
+const animationClass = `animate-text-slide-${uniqueItems.length}`;
+---
+
+<div class="[text-wrap:balance] opacity-75">
+  <slot />
+  <span
+    class="inline-flex h-[calc(theme(fontSize.base)*theme(lineHeight.tight))] flex-col overflow-hidden"
+  >
+    <ul class={`block ${animationClass} text-left leading-tight [&_li]:block`}>
+      {uniqueItems.map((item) => <li>{item}</li>)}
+      {/* Duplicate the first item for a seamless loop */}
+      <li aria-hidden="true">{uniqueItems[0]}</li>
+    </ul>
+  </span>
+</div>

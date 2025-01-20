@@ -1,0 +1,20 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+type Props = {
+  projects: Array;
+  animate: boolean;
+};
+
+const { projects, animate } = Astro.props;
+---
+
+<ul class=`grid sm:grid-cols-2 gap-4 ${animate ? "animate" : ""}`>
+  {
+    projects.map((project) => (
+      <li>
+        <ProjectCard entry={project} />
+      </li>
+    ))
+  }
+</ul>

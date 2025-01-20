@@ -1,5 +1,7 @@
 export type Site = {
   NAME: string;
+  JOB_TITLE: string;
+  BIO: string;
   EMAIL: string;
   NUM_POSTS_ON_HOMEPAGE: number;
   NUM_WORKS_ON_HOMEPAGE: number;
@@ -14,4 +16,10 @@ export type Metadata = {
 export type Socials = {
   NAME: string;
   HREF: string;
+}[];
+
+export type NavItems = {
+  TITLE: string;
+  HREF: string;
+  TARGET?: string;
 }[];

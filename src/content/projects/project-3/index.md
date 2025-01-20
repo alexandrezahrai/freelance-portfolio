@@ -1,15 +1,15 @@
 ---
-title: "Bellevue International"
-description: "High-performance marketing website built with Next.js, Sanity CMS and Tailwind."
-date: "2024"
-demoURL: "https://www.bellevue-intl.com/"
+title: "Project #3"
+description: "A WordPress site built for Besa, a nonprofit heaadquartered in Columbus, OH."
+date: "2023"
+demoURL: "https://besa.org/"
 repoURL: ""
-screenshot: "/_bellevue_intl.webp"
+screenshot: "https://images.unsplash.com/photo-1735447814306-8887e953a91f?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
-![Screenshot of Bellevue International website](/_bellevue_intl.webp)
+![Screenshot of Besa website](/_besa.webp)
 
-A high-performance marketing website built with Next.js, Sanity CMS, and Tailwind CSS. It features advanced routing and server-side rendering for optimized performance and SEO. The site delivers a seamless, responsive user experience with exceptional speed and discoverability.
+A custom Wordpress site built for Besa, a nonprofit headquartered in Columbus, committed to catalyzing a surge in civic involvement that uplifts the entire community. Built using Advanced Custom Fields PRO, PHP, Alpine.js and Tailwind.
 
 <!-- ## 🚀 Deploy your own
 
@@ -40,7 +40,7 @@ A high-performance marketing website built with Next.js, Sanity CMS, and Tailwin
 
 ## Lighthouse score
 
-![Bellevue International Lighthouse Score](/_bellevue_lighthouse_score.png)
+![Besa Lighthouse Score](/_besa_lighthouse_score.png)
 
 <!-- ## 🕊️ Lightweight
 

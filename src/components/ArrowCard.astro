@@ -3,25 +3,71 @@ import type { CollectionEntry } from "astro:content";
 
 type Props = {
   entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
-}
+};
 
 const { entry } = Astro.props;
 ---
 
-<a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+<div>
+  <a
+    href={`/${entry.collection}/${entry.slug}`}
+    class="group flex flex-nowrap justify-center rounded-lg py-3 px-4 pr-10 border border-transparent shadow text-sm font-medium text-slate-900 bg-white dark:bg-[#27292e] dark:text-slate-50 relative before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.slate.50)_50%,transparent_75%,transparent_100%)] dark:before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.slate.50/.5)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-[2000ms]"
+  >
+    <div class="flex flex-col flex-1 truncate">
+      <div class="font-semibold">
+        {entry.data.title}
+      </div>
+      <p class="text-sm text-slate-500 dark:text-[#b4b4b4]">
+        {entry.data.description}
+      </p>
+    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current group-hover:stroke-indigo-600 dark:group-hover:stroke-indigo-400 transition-colors duration-300 ease-in-out"
+    >
+      <line
+        x1="5"
+        y1="12"
+        x2="19"
+        y2="12"
+        class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+      ></line>
+      <polyline
+        points="12 5 19 12 12 19"
+        class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+      ></polyline>
+    </svg></a
+  >
+</div>
+
+<!-- <a
+  href={`/${entry.collection}/${entry.slug}`}
+  class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 bg-[#F9F9F9] text-[#646464] dark:bg-[#222222] dark:text-white dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 ease-in-out"
+>
   <div class="flex flex-col flex-1 truncate">
     <div class="font-semibold">
       {entry.data.title}
     </div>
-    <div class="text-sm">
+    <p class="text-sm">
       {entry.data.description}
-    </div>
+    </p>
   </div>
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current">
-    <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
-    <polyline points="12 5 19 12 12 19" class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
+    class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current"
+  >
+    <line
+      x1="5"
+      y1="12"
+      x2="19"
+      y2="12"
+      class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+    ></line>
+    <polyline
+      points="12 5 19 12 12 19"
+      class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+    ></polyline>
   </svg>
-</a>
+</a> -->

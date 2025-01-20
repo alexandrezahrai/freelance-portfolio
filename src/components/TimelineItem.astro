@@ -1,12 +1,13 @@
 ---
-// WorkItem.astro
+import Link from "@components/Link.astro";
 interface Props {
   date: string;
   role: string;
   company?: string;
+  link?: string;
 }
 
-const { date, role, company } = Astro.props;
+const { date, role, company, link } = Astro.props;
 ---
 
 <article class="animate group relative pl-8 sm:pl-0 pb-12 group space-y-0">
@@ -16,8 +17,18 @@ const { date, role, company } = Astro.props;
   <div
     class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-[0.5px] before:bg-slate-900/10 dark:before:bg-slate-300/10 sm:before:ml-[-2rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 dark:after:bg-indigo-400 after:border-4 after:box-content after:border-slate-50 dark:after:border-[#0F1217] after:rounded-full sm:after:ml-[-2rem] after:-translate-x-1/2 after:translate-y-1.5"
   >
-    <div class="text-slate-900 dark:text-slate-50 mb-4">
-      {role}{company ? ` @ ${company}` : ""}
+    <div class="!text-slate-900 dark:!text-slate-50 mb-4">
+      {role}
+      {
+        company && (
+          <>
+            {" @ "}
+            <Link href={link} underline={false} classes="no-underline">
+              {company}
+            </Link>
+          </>
+        )
+      }
     </div>
   </div>
   <!-- Content -->

@@ -7,6 +7,7 @@ import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
 import ProjectGrid from "@components/ProjectGrid.astro";
 import Text from "@components/Text.astro";
+import Link from "@components/Link.astro";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
@@ -66,15 +67,6 @@ const work = await Promise.all(
           <FancyLink href="/projects">view all projects</FancyLink>
         </div>
         <ProjectGrid projects={projects} animate={false} />
-        <!-- <ul class="grid sm:grid-cols-2 gap-4">
-          {
-            projects.map((project) => (
-              <li>
-                <ProjectCard entry={project} />
-              </li>
-            ))
-          }
-        </ul> -->
       </section>
 
       <section class="animate space-y-6">
@@ -90,9 +82,9 @@ const work = await Promise.all(
                   {dateRange(entry.data.dateStart, entry.data.dateEnd)}
                 </div>
                 {entry.data.company
-                  ? <div class="text-slate-900 dark:text-slate-50">
-                  {entry.data.company}
-                </div>
+                  ? <Link href={entry.data.URL} underline={false} classes="no-underline text-slate-900 dark:text-slate-50">
+                    {entry.data.company}
+                    </Link>
                 <div class="text-sm opacity-75">{entry.data.role}</div>
                   : <div class="text-slate-900 dark:text-slate-50">
                   {entry.data.role}

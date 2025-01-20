@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import Link from "@components/Link.astro";
 import FancyLink from "@components/FancyLink.astro";
+import Text from "@components/Text.astro";
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects"))
@@ -27,11 +28,12 @@ const { Content } = await project.render();
       <BackToPrev href="/projects"> Back to projects </BackToPrev>
     </div>
     <div class="space-y-1 my-10">
-      <h1
+      <Text
+        tag="h1"
+        variant="fancy"
         class="animate text-3xl font-caveat text-indigo-600 dark:text-indigo-400"
+        >{project.data.title}</Text
       >
-        {project.data.title}
-      </h1>
       {
         (project.data.demoURL || project.data.repoURL) && (
           <nav class="animate flex gap-1">

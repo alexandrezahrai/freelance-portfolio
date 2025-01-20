@@ -1,0 +1,60 @@
+---
+export interface Props {
+  tag?:
+    | "p"
+    | "a"
+    | "span"
+    | "small"
+    | "div"
+    | "strong"
+    | "em"
+    | "blockquote"
+    | "summary"
+    | "label"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6";
+  variant?: string;
+  level?: number;
+  class?: string;
+  for?: string;
+  id?: string;
+  href?: string;
+}
+
+const textStyles: { [key: string]: string } = {
+  heading: "font-semibold text-[18px]",
+  subheading: "font-semibold text-[16px]",
+  fancy: "font-caveat",
+  textBase: "text-base text-pretty",
+  textSM: "text-[14px] leading-6 text-pretty",
+  textXS: "text-xs leading-5 text-pretty",
+};
+
+const {
+  tag: Tag = "p", // default to paragraph
+  variant = "textMD", // default to textMD variant
+  level = 2, // default to level 2 for headings
+  class: className = "", // Default class to an empty string
+  for: htmlFor, // Capture 'for' attribute
+  ...rest
+} = Astro.props;
+
+// Get the base classes for the variant
+const baseClasses = textStyles[variant] || textStyles.textMD; // Default to textMD if not found
+// Combine base classes with any additional custom classes
+const combinedClasses = `${baseClasses} ${className || ""}`.trim();
+
+// Adjust the tag based on the level for headings
+let resolvedTag: string = Tag; // Ensure resolvedTag is a string
+if (["h1", "h2", "h3", "h4", "h5", "h6"].includes(Tag)) {
+  resolvedTag = `h${Math.min(Math.max(level, 1), 6)}`; // Enforce level to be between 1 and 6
+}
+---
+
+<Tag class={combinedClasses} {...rest}>
+  <slot />
+</Tag>

@@ -4,6 +4,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { PROJECTS } from "@consts";
 import ProjectGrid from "@components/ProjectGrid.astro";
+import Text from "@components/Text.astro";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
@@ -13,11 +14,12 @@ const projects = (await getCollection("projects"))
 <PageLayout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <h1
-        class="animate font-semibold text-indigo-600 dark:text-indigo-400 text-lg leading-5"
+      <Text
+        tag="h1"
+        variant="heading"
+        class="animate font-semibold text-indigo-600 dark:text-indigo-400"
+        >Projects</Text
       >
-        Projects
-      </h1>
       <ProjectGrid projects={projects} animate={true} />
       <!-- <ul class="animate grid sm:grid-cols-2 gap-4">
         {

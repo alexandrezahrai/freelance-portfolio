@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
 import TimelineItem from "@components/TimelineItem.astro";
+import Text from "@components/Text.astro";
 
 const collection = (await getCollection("work")).sort((a, b) => {
   // Handle "Current" end dates first
@@ -28,11 +29,12 @@ const work = await Promise.all(
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <h1
-        class="animate font-semibold text-indigo-600 dark:text-indigo-400 text-lg leading-5"
+      <Text
+        tag="h1"
+        variant="heading"
+        class="animate text-indigo-600 dark:text-indigo-400"
+        >Work Experience</Text
       >
-        Work Experience
-      </h1>
       <div class="-my-6">
         {
           work.map((entry) => (

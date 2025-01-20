@@ -5,9 +5,8 @@ import PageLayout from "@layouts/PageLayout.astro";
 import FancyLink from "@components/FancyLink.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
-// import RollingText from "@components/RollingText.astro";
-import ProjectCard from "@components/ProjectCard.astro";
 import ProjectGrid from "@components/ProjectGrid.astro";
+import Text from "@components/Text.astro";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
@@ -49,11 +48,7 @@ const work = await Promise.all(
         />
       </div>
       <div class="flex flex-col gap-0">
-        <h1
-          class="font-semibold text-[18px] text-indigo-600 dark:text-indigo-400 text-lg leading-5"
-        >
-          {SITE.NAME}
-        </h1>
+        <Text tag="h1" variant="heading" class="text-indigo-600 dark:text-indigo-400">{SITE.NAME}</Text>
         <span class="text-slate-900/75 dark:text-white/75">{SITE.JOB_TITLE}</span>
         <!-- <RollingText items={["Developer", "Designer"]}> Web </RollingText> -->
       </div>
@@ -61,17 +56,13 @@ const work = await Promise.all(
     <div class="space-y-16">
       <section>
         <article class="space-y-4">
-          <p class="animate text-pretty">
-            {SITE.BIO}
-          </p>
+          <Text tag="p" variant="textBase" class="animate">{SITE.BIO}</Text>
         </article>
       </section>
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h2 class="font-semibold text-indigo-600 dark:text-indigo-400 text-lg">
-            Recent Projects
-          </h2>
+          <Text tag="h2" variant="heading" class="text-indigo-600 dark:text-indigo-400">Recent Projects</Text>
           <FancyLink href="/projects">view all projects</FancyLink>
         </div>
         <ProjectGrid projects={projects} animate={false} />
@@ -88,9 +79,7 @@ const work = await Promise.all(
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h3 class="font-semibold text-indigo-600 dark:text-indigo-400 text-lg">
-            Work Experience
-          </h3>
+          <Text tag="h3" variant="heading" class="text-indigo-600 dark:text-indigo-400">Work Experience</Text>
           <FancyLink href="/work">view all work</FancyLink>
         </div>
         <ul class="flex flex-col space-y-4">
@@ -115,14 +104,9 @@ const work = await Promise.all(
       </section>
 
       <section class="animate space-y-4">
-        <h4 class="font-semibold text-indigo-600 dark:text-indigo-400 text-lg">
-          Let's Connect
-        </h4>
+        <Text tag="h4" variant="heading" class="text-indigo-600 dark:text-indigo-400">Let's Talk!</Text>
         <article>
-          <p class="text-pretty">
-            Feel free to reach out on socials or send me an email if you'd like
-            to connect or just say hello!
-          </p>
+          <Text tag="p" variant="textBase">Feel free to reach out on socials or send me an email if you'd like to connect or just say hello!</Text>
         </article>
         <ul class="flex flex-wrap flex-col md:flex-row gap-2">
           {

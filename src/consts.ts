@@ -58,7 +58,7 @@ export const NAVITEMS: NavItems = [
   },
   {
     TITLE: "resume",
-    HREF: "public/Resume_Alexandre_zahrai.pdf",
+    HREF: "Resume_Alexandre_Zahrai.pdf",
     TARGET: "external",
   },
 ];

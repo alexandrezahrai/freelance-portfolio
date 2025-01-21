@@ -27,7 +27,7 @@ import { SITE, NAVITEMS } from "@consts";
           >
         </div>
       </Link>
-      <nav class="flex gap-6">
+      <nav class="flex gap-3 md:gap-2">
         {
           NAVITEMS.map((ITEM) => (
             <FancyLink
@@ -36,6 +36,7 @@ import { SITE, NAVITEMS } from "@consts";
             >
               {ITEM.TITLE}
             </FancyLink>
+            <span class="block last:hidden">{"/"}</span>
           ))
         }
       </nav>

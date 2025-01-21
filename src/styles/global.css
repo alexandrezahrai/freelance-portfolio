@@ -43,7 +43,7 @@ body {
   @apply relative;
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-slate-50 dark:bg-[#06050F];
+  @apply bg-slate-50 dark:bg-[#12161d];
   @apply text-slate-900/75 dark:text-white/75;
   @apply -tracking-[0.75px];
 }
@@ -59,7 +59,7 @@ h6 {
 
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-slate-50/75 dark:bg-[#06050F]/15;
+  @apply bg-slate-50/75 dark:bg-[#12161d]/15;
   @apply backdrop-blur-sm;
 }
 
@@ -70,6 +70,10 @@ main {
 
 footer {
   @apply py-5 text-sm;
+}
+
+button {
+  @apply -tracking-[0.75px];
 }
 
 article {

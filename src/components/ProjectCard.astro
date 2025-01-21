@@ -14,7 +14,7 @@ const { entry } = Astro.props;
   id="card"
 >
   <a href={`/${entry.collection}/${entry.slug}`}>
-    <div class="h-56 w-full overflow-hidden sm:h-44 relative">
+    <div class="h-48 w-full overflow-hidden sm:h-44 relative">
       <Picture
         src={entry.data.screenshot
           ? entry.data.screenshot
@@ -25,7 +25,7 @@ const { entry } = Astro.props;
         alt=`Screenshot of ${entry.data.title} website.`
       />
     </div>
-    <div class="flex flex-col flex-1 gap-2 p-4">
+    <div class="flex flex-col flex-1 gap-2 p-6">
       <div
         class="font-semibold text-slate-900 dark:text-slate-50 mb-[2px] group-hover:text-indigo-800 dark:group-hover:text-indigo-50"
       >
@@ -36,7 +36,7 @@ const { entry } = Astro.props;
       >
         {entry.data.description}
       </p>
-      <div class="relative group w-fit flex pl-0 pr-8 py-1.5 flex-nowrap">
+      <div class="relative group w-fit flex pl-0 pr-8 mt-1.5 flex-nowrap">
         <div class="text-sm dark:group-hover:text-indigo-50">Read More</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

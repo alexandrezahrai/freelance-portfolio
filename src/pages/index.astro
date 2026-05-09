@@ -8,6 +8,7 @@ import { SITE, HOME, SOCIALS } from "@consts";
 import ProjectGrid from "@components/ProjectGrid.astro";
 import Text from "@components/Text.astro";
 import Link from "@components/Link.astro";
+import ForwardLink from "@components/ForwardLink.astro";
 
 // const projects = (await getCollection("projects"))
 //   .filter((project) => !project.data.draft)
@@ -50,8 +51,8 @@ const work = await Promise.all(
         />
       </div>
       <div class="flex flex-col gap-1">
-        <Text tag="h1" variant="heading" class="text-indigo-600 dark:text-indigo-400">{SITE.NAME}</Text>
-        <span class="text-slate-900/75 dark:text-white/75">{SITE.JOB_TITLE}</span>
+        <Text tag="h1" variant="heading" class="text-indigo-600 dark:text-indigo-400">Web Developer in Kalamazoo, MI</Text>
+        <span class="text-slate-900/75 dark:text-white/75">{SITE.NAME}</span>
         <!-- <RollingText items={["Developer", "Designer"]}> Web </RollingText> -->
       </div>
     </div>
@@ -59,8 +60,11 @@ const work = await Promise.all(
     <div class="space-y-16">
       <section>
         <article class="space-y-4">
-          <Text tag="p" variant="textBase" class="animate">{SITE.BIO}</Text>
+          <Text tag="p" variant="textBase" class="animate">I've built websites for agencies and brands like Bell's Brewery. Now I work directly with small businesses in Kalamazoo to get them the same quality without the agency price tag.</Text>
         </article>
+        <div class="animate mt-4">
+          <ForwardLink href="/contact">Get a Free Site Audit</ForwardLink>
+        </div>
       </section>
 
       <section class="animate space-y-6">

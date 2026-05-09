@@ -11,8 +11,8 @@ export const SITE: Site = {
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
-  DESCRIPTION: "Welcome to Alex's personal website.",
+  TITLE: "Web Developer in Kalamazoo, MI",
+  DESCRIPTION: "Kalamazoo web developer with agency experience, including Bell's Brewery. I build fast, professional websites for small businesses at freelance prices. Get a free site audit.",
 };
 
 export const BLOG: Metadata = {

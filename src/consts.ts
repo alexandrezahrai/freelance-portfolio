@@ -21,14 +21,13 @@ export const BLOG: Metadata = {
 };
 
 export const WORK: Metadata = {
-  TITLE: "Work",
-  DESCRIPTION: "Where I have worked and what I have done.",
+  TITLE: "Web Development Experience | Alex Zahrai",
+  DESCRIPTION: "Agency and freelance web development experience, including SKYCATCHFIRE and Circa Creative Studios.",
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "Projects",
-  DESCRIPTION:
-    "A collection of my projects, with links to repositories and demos.",
+  TITLE: "Web Development Portfolio | Alex Zahrai, Kalamazoo MI",
+  DESCRIPTION: "Portfolio of web development projects by Alex Zahrai, a freelance web developer in Kalamazoo, MI. Clients include Bell's Brewery.",
 };
 
 export const NOT_FOUND: Metadata = {

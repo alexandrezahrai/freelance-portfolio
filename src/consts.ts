@@ -35,6 +35,11 @@ export const NOT_FOUND: Metadata = {
   DESCRIPTION: "The page you're looking for does not exist or has been moved.",
 };
 
+export const CONTACT: Metadata = {
+  TITLE: "Contact | Alex Zahrai",
+  DESCRIPTION: "Get in touch with Alex Zahrai, freelance web developer in Kalamazoo, MI. Free 30-minute website audit for local small businesses.",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "github",

@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Claude Code local settings (personal permission overrides)
+.claude/settings.local.json

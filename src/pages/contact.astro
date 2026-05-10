@@ -1,0 +1,133 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Text from "@components/Text.astro";
+import FancyLink from "@components/FancyLink.astro";
+import { CONTACT, SITE } from "@consts";
+---
+
+<PageLayout title={CONTACT.TITLE} description={CONTACT.DESCRIPTION}>
+  <script slot="head" is:inline src="https://unpkg.com/@formspree/ajax@1" defer
+  ></script>
+  <script slot="head" is:inline>
+    function initContactForm() {
+      var form = document.querySelector("#contact-form");
+      if (!form) return;
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments);
+        };
+      formspree("initForm", {
+        formElement: "#contact-form",
+        formId: "xnjwovan",
+      });
+    }
+    document.addEventListener("DOMContentLoaded", initContactForm);
+    document.addEventListener("astro:after-swap", initContactForm);
+  </script>
+
+  <Container>
+    <div class="space-y-10">
+      <section>
+        <div class="animate space-y-4">
+          <Text
+            tag="h1"
+            variant="heading"
+            class="text-indigo-600 dark:text-indigo-400"
+          >
+            Let's build something
+          </Text>
+          <Text tag="p" variant="textBase">
+            Not sure if you need a full site? I offer a free 30-minute audit of
+            your current website. Based in Kalamazoo, MI and available for local
+            meetings.
+          </Text>
+        </div>
+      </section>
+
+      <section class="animate space-y-6">
+        <div data-fs-success class="text-green-600 dark:text-green-400 text-sm">
+        </div>
+        <div data-fs-error class="text-red-500 dark:text-red-400 text-sm"></div>
+
+        <form id="contact-form" class="space-y-5">
+          <div class="space-y-1.5">
+            <label
+              for="name"
+              class="block text-[14px] leading-6 text-slate-900 dark:text-white"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              data-fs-field
+              class="w-full rounded border border-slate-200 dark:border-white/10 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400"
+            />
+            <span
+              data-fs-error="name"
+              class="text-red-500 dark:text-red-400 text-xs"></span>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              for="email"
+              class="block text-[14px] leading-6 text-slate-900 dark:text-white"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              data-fs-field
+              class="w-full rounded border border-slate-200 dark:border-white/10 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400"
+            />
+            <span
+              data-fs-error="email"
+              class="text-red-500 dark:text-red-400 text-xs"></span>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              for="message"
+              class="block text-[14px] leading-6 text-slate-900 dark:text-white"
+            >
+              Project Description
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              data-fs-field
+              class="w-full rounded border border-slate-200 dark:border-white/10 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400 resize-y"
+            ></textarea>
+            <span
+              data-fs-error="message"
+              class="text-red-500 dark:text-red-400 text-xs"></span>
+          </div>
+
+          <button
+            type="submit"
+            data-fs-submit-btn
+            class="bg-indigo-600 dark:bg-indigo-500 text-white text-sm px-4 py-2 rounded hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed -tracking-[0.75px]"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div
+          class="flex items-center gap-1.5 text-sm text-slate-900/50 dark:text-white/50"
+        >
+          <span>Or reach me directly:</span>
+          <FancyLink href={`mailto:${SITE.EMAIL}`}>{SITE.EMAIL}</FancyLink>
+        </div>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

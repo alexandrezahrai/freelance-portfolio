@@ -35,9 +35,25 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Alex Zahrai",
+  "url": "https://www.alexzahrai.com",
+  "description": "Freelance web developer in Kalamazoo, MI specializing in websites for small businesses",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kalamazoo",
+    "addressRegion": "MI",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Kalamazoo, MI", "Southwest Michigan"]
+};
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <Container>
     <!-- Name and photo -->
     <div class="animate flex justify-start items-center gap-4">

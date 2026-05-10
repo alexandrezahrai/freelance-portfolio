@@ -40,6 +40,11 @@ export const CONTACT: Metadata = {
   DESCRIPTION: "Get in touch with Alex Zahrai, freelance web developer in Kalamazoo, MI. Free 30-minute website audit for local small businesses.",
 };
 
+export const SERVICES: Metadata = {
+  TITLE: "Services | Alex Zahrai, Kalamazoo MI",
+  DESCRIPTION: "Web design and development services for small businesses in Kalamazoo, MI — from WordPress to custom Astro builds.",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "github",
@@ -59,6 +64,10 @@ export const NAVITEMS: NavItems = [
   {
     TITLE: "work",
     HREF: "/work",
+  },
+  {
+    TITLE: "services",
+    HREF: "/services",
   },
   {
     TITLE: "contact",

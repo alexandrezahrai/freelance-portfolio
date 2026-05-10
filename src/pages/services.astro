@@ -1,0 +1,65 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Text from "@components/Text.astro";
+import { SERVICES } from "@consts";
+---
+
+<PageLayout title={SERVICES.TITLE} description={SERVICES.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <section>
+        <div class="animate space-y-4">
+          <Text
+            tag="h1"
+            variant="heading"
+            class="text-indigo-600 dark:text-indigo-400"
+          >
+            Services
+          </Text>
+        </div>
+      </section>
+
+      <section class="animate space-y-4">
+        <Text tag="h2" variant="subheading">
+          Website Design and Development
+        </Text>
+        <Text tag="p" variant="textBase">
+          For small businesses in Kalamazoo that need a professional site that
+          actually converts visitors. I handle design and development together,
+          so nothing gets lost in translation.
+        </Text>
+      </section>
+
+      <section class="animate space-y-4">
+        <Text tag="h2" variant="subheading">WordPress Sites</Text>
+        <Text tag="p" variant="textBase">
+          For clients who want to manage their own content after launch. Built
+          with Elementor, with a handoff walkthrough so you can make updates
+          without calling a developer.
+        </Text>
+      </section>
+
+      <section class="animate space-y-4">
+        <Text tag="h2" variant="subheading">Custom Builds</Text>
+        <Text tag="p" variant="textBase">
+          For performance-first projects that need more than a template. Built
+          on Astro or Next.js with a headless CMS so the site is fast, scalable,
+          and easy to update.
+        </Text>
+      </section>
+
+      <section class="animate space-y-4">
+        <Text tag="p" variant="textBase">
+          Ready to start? Let's talk about your project.
+        </Text>
+        <a
+          href="/contact"
+          class="inline-block bg-indigo-600 dark:bg-indigo-500 text-white text-sm px-4 py-2 rounded hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors duration-300 -tracking-[0.75px]"
+        >
+          Get in Touch
+        </a>
+      </section>
+    </div>
+  </Container>
+</PageLayout>
